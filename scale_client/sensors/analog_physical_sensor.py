@@ -32,6 +32,7 @@ class AnalogPhysicalSensor(PhysicalSensor):
             self._spi = spidev.SpiDev()
         try:
             self._spi.open(0, 0)
+            self._spi.max_speed_hz=20000
         except IOError:
             log.error("Failed to open analog device: " + self.device.device)
             return
